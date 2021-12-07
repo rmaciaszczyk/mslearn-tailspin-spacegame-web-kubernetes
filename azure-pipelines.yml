@@ -64,11 +64,10 @@ stages:
                        kubernetesServiceConnection: 'Kubernetes Cluster Connection'
                        namespace: 'default'
                  - task: KubernetesManifest@0
-                   displayName: Create imagePullSecret
+                   displayName: Deploy to Kubernetes cluster
                    inputs:
-                       action: createSecret
+                       action: deploy
                        secretName: $(imagePullSecret)
-                       dockerRegistryEndpoint: 'Container Registry Connection'
                        kubernetesServiceConnection: 'Kubernetes Cluster Connection'
                        namespace: 'default'
                        manifests: |
